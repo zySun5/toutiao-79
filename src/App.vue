@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    App
+    <!-- 一级路由组件的显示位置 出口位置 -->
+    <router-view></router-view>
   </div>
 </template>
 
