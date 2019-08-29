@@ -19,14 +19,15 @@
               </el-radio-group>
             </el-form-item>
             <el-form-item label="频道">
-               <el-select v-model="reqParams.channel_id" placeholder="请选择" clearable="">
+              <my-channel v-model="reqParams.channel_id"></my-channel>
+               <!-- <el-select v-model="reqParams.channel_id" placeholder="请选择" clearable="">
                   <el-option
                     v-for="item in channelOptions"
                     :key="item.id"
                     :label="item.name"
                     :value="item.id">
                   </el-option>
-                </el-select>
+                </el-select> -->
             </el-form-item>
             <el-form-item label="日期">
               <el-date-picker
@@ -83,7 +84,7 @@
           </el-table-column>
         </el-table>
         <!-- 分页 -->
-        <el-pagination class="pager" background layout="prev, pager, next,total" @current-change="changePager()" :current-page="reqParams.page" :page-size="reqParams.per_page" :total="total">
+        <el-pagination class="pager" background layout="prev, pager, next,total" @current-change="changePager" :current-page="reqParams.page" :page-size="reqParams.per_page" :total="total">
         </el-pagination>
       </el-card>
     </div>
@@ -100,7 +101,7 @@ export default {
         begin_pubdate: null,
         end_pubdate: null,
         page: 1,
-        per_page: 20
+        per_page: 10
       },
       // 日期数据 0:起使时间  1:结束时间
       dataArr: [],
@@ -114,14 +115,14 @@ export default {
   },
   created () {
     // 获取频道选项数据
-    this.getChannelOptions()
+    // this.getChannelOptions()
     // 获取文章列表数据
     this.getArticles()
   },
   methods: {
     // 删除文章
     async delArticle (id) {
-      this.$confirm('亲，此操作经永久删除该文章，是否继续？', 'w温馨提示', {
+      this.$confirm('亲，此操作经永久删除该文章，是否继续？', '温馨提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -140,10 +141,10 @@ export default {
     search () {
       // 当你从新查询的时候，当前的页码应该是第一页
       this.reqParams.page = 1
-      // 频道数据值为“”的时候
-      if (this.reqParams.channel_id === '') {
-        this.reqParams.channel_id = null
-      }
+      // // 频道数据值为“”的时候
+      // if (this.reqParams.channel_id === '') {
+      //   this.reqParams.channel_id = null
+      // }
       this.getArticles()
     },
     // 选择时间
@@ -166,10 +167,10 @@ export default {
       this.reqParams.page = newPage
       this.getArticles()
     },
-    async getChannelOptions () {
-      const { data: { data } } = await this.$http.get('channels')
-      this.channelOptions = data.channels
-    },
+    // async getChannelOptions () {
+    //   const { data: { data } } = await this.$http.get('channels')
+    //   this.channelOptions = data.channels
+    // },
     async getArticles () {
       // post 请求 post('地址'，‘数据’)
       // get  请求 get(’地址‘，’{params:数据}‘)

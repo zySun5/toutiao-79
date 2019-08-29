@@ -54,7 +54,7 @@
       <el-dropdown class="my-dropdown">
         <span class="el-dropdown-link ">
           <!-- 头像 -->
-          <img class="avatar" :src="photo">
+          <img class="avatarimg" :src="photo">
           <span class="username"> {{name}}</span>
             <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -150,7 +150,7 @@ export default {
     }
     .my-dropdown{
       float: right;
-      .avatar{
+      .avatarimg{
         width: 30px;
         height: 30px;
         vertical-align: middle;
