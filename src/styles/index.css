@@ -21,3 +21,12 @@
   height: 178px;
   display: block;
 }
+#app .ql-editor {
+  height: 300px;
+}
+#app .ql-toolbar.ql-snow {
+  padding: 0 8px;
+}
+.img_container .el-dialog__body {
+  padding-bottom: 0;
+}

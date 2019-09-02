@@ -3,6 +3,7 @@
 // 功能：函数内去实现 插件逻辑业务
 import MyBread from '@/components/my-bread'
 import MyChannel from '@/components/my-channel'
+import MyImage from '@/components/my-image'
 export default {
   install (Vue) {
     // Vue是 import Vue from 'vue' 对象
@@ -11,5 +12,6 @@ export default {
     // Vue.component('组件名称','组件配置对象')
     Vue.component(MyBread.name, MyBread)
     Vue.component(MyChannel.name, MyChannel)
+    Vue.component(MyImage.name, MyImage)
   }
 }

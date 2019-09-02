@@ -33,11 +33,11 @@
               <el-date-picker
                 v-model="dataArr"
                 type="daterange"
-                @change="changeDate()"
+                @change="changeDate"
                 range-separator="至"
                 start-placeholder="开始日期"
                 end-placeholder="结束日期"
-                value-format="yyy-MM-dd">
+                value-format="yyyy-MM-dd">
               </el-date-picker>
             </el-form-item>
             <el-form-item>
@@ -121,7 +121,7 @@ export default {
   },
   methods: {
     // 删除文章
-    async delArticle (id) {
+    delArticle (id) {
       this.$confirm('亲，此操作经永久删除该文章，是否继续？', '温馨提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -179,7 +179,7 @@ export default {
       this.articles = data.results
       // 总条数
       this.total = data.total_count
-      console.log(this.articles)
+      // console.log(this.articles)
     }
   }
 }

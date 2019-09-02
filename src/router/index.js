@@ -7,7 +7,10 @@ import Login from '@/views/login'
 import Home from '@/views/home'
 import Welcome from '@/views/welcome'
 import Article from '@/views/article'
+import Publish from '@/views/publish'
 import Image from '@/views/image'
+import Comment from '@/views/comment'
+import Setting from '@/views/setting'
 
 import NotFound from '@/views/404'
 
@@ -26,7 +29,10 @@ const router = new VueRouter({
         // 欢迎页面  如果子路由有名字，父路由要删除名字
         { path: '/', name: 'welcome', component: Welcome },
         { path: '/article', name: 'article', component: Article },
-        { path: '/image', name: 'image', component: Image }
+        { path: '/image', name: 'image', component: Image },
+        { path: '/publish', name: 'publish', component: Publish },
+        { path: '/comment', name: 'comment', component: Comment },
+        { path: '/setting', name: 'setting', component: Setting }
       ] },
     { path: '/test', name: 'test', component: test },
     { path: '*', name: '404', component: NotFound }
